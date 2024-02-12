@@ -1,0 +1,266 @@
+[manager]
+cwd = { fg = "#ebbcba" }
+
+# Hovered
+hovered = { fg = "#191724", bg = "#c4a7e7" }
+preview_hovered = { underline = true }
+
+# Find
+find_keyword  = { fg = "#191724", bg = "#ebbcba" }
+find_position = { fg = "magenta", bg = "reset", italic = true }
+
+# Marker
+marker_selected = { fg = "#191724", bg = "#ebbcba" }
+marker_copied  = { fg = "#191724", bg = "#9ccfd8" }
+marker_cut = { fg = "#e0def4", bg ="#eb6f92" }
+
+# Tab
+tab_active    = { fg = "#908caa", bg = "#26233a" }
+tab_inactive  = { fg = "#6e6a86", bg = "#1f1d2e" }
+tab_width    = 1
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "gray" }
+
+# Offset
+folder_offset  = [ 1, 0, 1, 0 ]
+preview_offset = [ 1, 1, 1, 1 ]
+
+# Highlighting
+syntect_theme = "~/.config/bat/themes/rose-pine.tmTheme"
+
+# : }}}
+
+
+# : Status {{{
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#26233a", bg = "#26233a" }
+
+# Mode
+mode_normal = { fg = "black", bg = "lightblue", bold = true }
+mode_select = { fg = "black", bg = "lightgreen", bold = true }
+mode_unset  = { fg = "black", bg = "lightmagenta", bold = true }
+
+# Progress
+progress_label  = { bold = true }
+progress_normal = { fg = "blue", bg = "black" }
+progress_error  = { fg = "red", bg = "black" }
+
+# Permissions
+permissions_t = { fg = "#9ccfd8" }
+permissions_r = { fg = "#f6c177" }
+permissions_w = { fg = "#eb6f92" }
+permissions_x = { fg = "lightcyan" }
+permissions_s = { fg = "darkgray" }
+
+# : }}}
+
+
+# : Input {{{
+
+[input]
+border   = { fg = "blue" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+# : }}}
+
+
+# : Select {{{
+
+[select]
+border   = { fg = "blue" }
+active   = { fg = "magenta" }
+inactive = {}
+
+# : }}}
+
+
+# : Tasks {{{
+
+[tasks]
+border  = { fg = "blue" }
+title   = {}
+hovered = { underline = true }
+
+# : }}}
+
+
+# : Which {{{
+
+[which]
+mask            = { bg = "black" }
+cand            = { fg = "lightcyan" }
+rest            = { fg = "darkgray" }
+desc            = { fg = "magenta" }
+separator       = "  "
+separator_style = { fg = "darkgray" }
+
+# : }}}
+
+
+# : Help {{{
+
+[help]
+on      = { fg = "magenta" }
+exec    = { fg = "cyan" }
+desc    = { fg = "gray" }
+hovered = { bg = "darkgray", bold = true }
+footer  = { fg = "black", bg = "white" }
+
+# : }}}[tab]
+active    = { fg = "#908caa", bg = "#26233a" }
+inactive  = { fg = "#6e6a86", bg = "#1f1d2e" }
+max_width = 1
+#
+# [status]
+# primary	  = { normal = "#c4a7e7", select = "#31748f", unset = "#ebbcba" }
+# secondary = { normal = "#1E2031", select = "#23273B", unset = "#23273B" }
+# tertiary  = { normal = "#6e6a86", select = "#6e6a86", unset = "#6e6a86" }
+# body      = { normal = "#26233a", select = "#26233a", unset = "#26233a"}
+# emphasis  = { normal = "#C8D3F8", select = "#C8D3F8", unset = "#C8D3F8" }
+# info      = { normal = "#ebbcba", select = "#ebbcba", unset = "#ebbcba" }
+# success   = { normal = "#9ccfd8", select = "#9ccfd8", unset = "#9ccfd8" }
+# warning   = { normal = "#f6c177", select = "#f6c177", unset = "#f6c177" }
+# danger    = { normal = "#eb6f92", select = "#eb6f92", unset = "#eb6f92" }
+# separator = { opening = "", closing = "" }
+#
+# [progress]
+# gauge = { fg = "#31748f", bg = "#26233a" }
+# label = { fg = "#e0def4", bold = true }
+#
+# [selection]
+# hovered = { fg = "#191724", bg = "#c4a7e7" }
+#
+# [marker]
+# selecting = { fg = "#e0def4", bg = "#31748f" }
+# selected  = { fg = "#191724", bg = "#ebbcba" }
+#
+# [preview]
+# hovered       = { underline = true }
+# syntect_theme = "~/.config/yazi/rose-pine.tmTheme"
+#
+[filetype]
+
+rules = [
+	# Images
+	{ mime = "image/*", fg = "#ebbcba" },
+
+	# Videos
+	{ mime = "video/*", fg = "#f6c177" },
+	{ mime = "audio/*", fg = "#f6c177" },
+
+	# Archives
+	{ mime = "application/zip", fg = "#908caa" },
+	{ mime = "application/gzip", fg = "#908caa" },
+	{ mime = "application/x-tar", fg = "#908caa" },
+	{ mime = "application/x-bzip", fg = "#908caa" },
+	{ mime = "application/x-bzip2", fg = "#908caa" },
+	{ mime = "application/x-7z-compressed", fg = "#908caa" },
+	{ mime = "application/x-rar", fg = "#908caa" },
+
+	# Fallback
+	{ name = "*", fg = "#e0def4" },
+	{ name = "*/", fg = "#c4a7e7" }
+]
+
+[icons]
+
+"Desktop/"     = ""
+"Documents/"   = ""
+"Downloads/"   = ""
+"pictures/"    = ""
+"Music/"       = ""
+"Movies/"      = ""
+"Videos/"      = ""
+"Public/"      = ""
+"Library/"     = ""
+"Development/" = ""
+".config/"     = ""
+"phone/"       = ""
+
+# Git
+".git/"          = ""
+".gitignore"     = ""
+".gitmodules"    = ""
+".gitattributes" = ""
+
+# Dotfiles
+".DS_Store"    = ""
+".bashrc"      = ""
+".bashprofile" = ""
+".zshrc"       = ""
+".zshenv"      = ""
+".zprofile"    = ""
+".vimrc"       = ""
+
+# Text
+"*.txt" = ""
+"*.md"  = ""
+
+# Archives
+"*.zip" = ""
+"*.tar" = ""
+"*.gz"  = ""
+"*.7z"  = ""
+
+# Audio
+"*.mp3"  = ""
+"*.flac" = ""
+"*.wav"  = ""
+
+# Movies
+"*.mp4" = ""
+"*.mkv" = ""
+"*.avi" = ""
+"*.mov" = ""
+
+# Images
+"*.jpg"  = ""
+"*.jpeg" = ""
+"*.png"  = ""
+"*.gif"  = ""
+"*.webp" = ""
+"*.avif" = ""
+"*.bmp"  = ""
+"*.ico"  = ""
+"*.svg"  = ""
+
+# Programming
+"*.c"     = ""
+"*.cpp"   = ""
+"*.h"     = ""
+"*.hpp"   = ""
+"*.rs"    = ""
+"*.go"    = ""
+"*.py"    = ""
+"*.js"    = ""
+"*.ts"    = ""
+"*.tsx"   = ""
+"*.jsx"   = ""
+"*.rb"    = ""
+"*.php"   = ""
+"*.java"  = ""
+"*.sh"    = ""
+"*.fish"  = ""
+"*.swift" = ""
+"*.vim"   = ""
+"*.lua"   = ""
+"*.html"  = ""
+"*.css"   = ""
+"*.scss"  = ""
+"*.json"  = ""
+"*.toml"  = ""
+"*.yml"   = ""
+"*.yaml"  = ""
+"*.ini"   = ""
+"*.conf"  = ""
+
+# Default
+"*"  = ""
+"*/" = ""

@@ -1,0 +1,36 @@
+# playerctl pause
+swaylock -f \
+    --font 'JetBrainsMono NFM' \
+	--screenshots \
+	--clock \
+    --timestr %H:%M \
+    --indicator \
+	--indicator-radius 150 \
+	--indicator-thickness 2 \
+	--effect-blur 7x5 \
+	--effect-vignette 0.5:0.5 \
+	--ring-color c4a7e7 \
+    --ring-clear-color c4a7e7 \
+    --ring-caps-lock-color c4a7e7 \
+    --ring-ver-color c4a7e7 \
+    --ring-wrong-color eb6f92 \
+	--key-hl-color f6c177 \
+	--line-color 00000000 \
+    --line-clear-color 00000000 \
+    --line-caps-lock-color 00000000 \
+    --line-ver-color 00000000 \
+    --line-wrong-color 00000000 \
+	--inside-color 00000088 \
+    --inside-clear-color 00000088 \
+    --inside-caps-lock-color 00000088 \
+    --inside-ver-color 00000088 \
+    --inside-wrong-color 00000088 \
+	--separator-color 00000000 \
+	--fade-in 0.75 \
+    --text-color e0def4 \
+    --text-clear-color e0def4 \
+    --text-caps-lock-color e0def4 \
+    --text-ver-color e0def4 \
+    --text-wrong-color eb6f92 \
+    --bs-hl-color 31748f \
+    --layout-bg-color 00000000

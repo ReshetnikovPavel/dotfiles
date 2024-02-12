@@ -1,0 +1,3 @@
+lock "~/scripts/swaylock.sh"
+timeout 300 "systemctl suspend"
+before-sleep "~/scripts/swaylock.sh"
