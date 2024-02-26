@@ -13,7 +13,6 @@ paths=(
     '.config/hypr'
     '.config/nvim'
     '.config/qt5ct'
-    '.config/swayidle'
     '.config/waybar'
     '.config/wofi'
     '.config/yazi'

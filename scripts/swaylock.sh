@@ -1,5 +1,5 @@
 # playerctl pause
-swaylock -f \
+swaylock -f -e \
     --font 'JetBrainsMono NFM' \
 	--screenshots \
 	--clock \

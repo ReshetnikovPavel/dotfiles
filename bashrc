@@ -40,9 +40,15 @@ alias powerdaemonreset='cpufreqctl.auto-cpufreq --governor --set=reset'
 alias powerinfo='sudo auto-cpufreq --debug'
 alias todo_edit="nvim $HOME/personal/notes/todo"
 alias hypr_edit="nvim $HOME/.config/hypr/hyprland.conf"
+alias phind='tgpt --provider phind -i'
+alias llama2='tgpt --provider llama2 -i'
 
 function hr() {
     pkill "$1" && hyprctl dispatch exec "$1"
+}
+
+function zip_dir() {
+    zip -r "${1%/}" "${1%/}"
 }
 
 

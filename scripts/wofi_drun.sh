@@ -6,4 +6,4 @@ if [[ "$pids" != $$ ]]; then
     exit 1
 fi
 
-wofi --show drun --allow-images
+wofi --show drun --allow-images -p Applications
