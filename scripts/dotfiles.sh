@@ -18,7 +18,6 @@ paths=(
     '.config/yazi'
     '.config/zathura'
     '.config/libinput-gestures.conf'
-    '.themes'
 )
 
 find "$new_root_dir" -mindepth  1 -maxdepth  1 | grep -v './.git.*' | xargs rm -r

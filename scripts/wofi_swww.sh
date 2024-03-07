@@ -1,6 +1,10 @@
 #!/bin/bash
 
-source ~/scripts/kill_other_wofi.sh
+pids="$(pidof -x $(basename $0))"
+kill "$(pgrep -x wofi)"
+if [[ "$pids" != $$ ]]; then
+    exit 1
+fi
 
 papers="$HOME/pictures/papers/"
 
