@@ -42,6 +42,8 @@ alias todo_edit="nvim $HOME/personal/notes/todo"
 alias hypr_edit="nvim $HOME/.config/hypr/hyprland.conf"
 alias phind='tgpt --provider phind -i'
 alias llama2='tgpt --provider llama2 -i'
+alias fh='cat ~/.bash_history | fzf | wl-copy'
+alias killorphans='sudo pacman -Qdtq | sudo pacman -Rns -'
 
 function hr() {
     pkill "$1" && hyprctl dispatch exec "$1"
@@ -61,12 +63,12 @@ export LC_TIME='en_GB.UTF-8'
 export TERM=foot
 export TERMINAL=foot
 export EDITOR=nvim
-export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_ENABLE_HIGHDPI_SCALING=1
 # export QT_SCALE_FACTOR=1.5
 
-export GTK_THEME=Adwaita:dark
+# export GTK_THEME=Adwaita:dark
 # export QT_QPA_PLATFORMTHEME=gtk3
 
 # *Set fzf theme*

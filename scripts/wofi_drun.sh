@@ -1,9 +1,5 @@
 #!/bin/bash
 
-pids="$(pidof -x $(basename $0))"
-kill "$(pgrep -x wofi)"
-if [[ "$pids" != $$ ]]; then
-    exit 1
-fi
+source ~/scripts/kill_other_wofi.sh
 
 wofi --show drun --allow-images -p Applications

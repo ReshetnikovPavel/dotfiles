@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.editorconfig = true
+
 
 vim.g.mapleader = ' '
 vim.o.clipboard = 'unnamedplus'
@@ -24,16 +26,14 @@ vim.api.nvim_set_keymap('i', '<D-Space>', '<Nop>', { noremap = true })
 vim.keymap.set('n', '<leader>#', ':b#<CR>', {})
 
 
-function FixWrongLayout()
-  local selected_text = vim.fn.getline("'<", "'>")
-  local result = vim.fn.systemlist("python3 ~/scripts/fix_wrong_layout.py", selected_text)
-  vim.fn.deletebufline('%', vim.fn.line("'<"), vim.fn.line("'>"))
-  vim.fn.append(vim.fn.line("'<")-1, result)
-end
+vim.api.nvim_create_user_command('CdToFileDir', function()
+  local current_file_dir = vim.fn.expand('%:p:h')
+  vim.cmd('cd ' .. current_file_dir)
+end, {})
 
-vim.api.nvim_set_keymap('v', '<leader>t', ':lua FixWrongLayout()<CR>', {noremap = true, silent = true})
-
-
+vim.keymap.set('v', '<leader>t', ':!python3 ~/scripts/fix_wrong_layout.py<CR>', {})
+vim.keymap.set('n', '<leader>/', ':noh<CR>', {})
+vim.keymap.set('v', '<leader><Enter>', ':!bash<CR>', {})
 
 local plugins = {
     { 'rose-pine/neovim',                name = 'rose-pine' },
