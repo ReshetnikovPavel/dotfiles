@@ -18,9 +18,10 @@ paths=(
     '.config/yazi'
     '.config/zathura'
     '.config/libinput-gestures.conf'
+    'personal/Lavanda-gtk-theme'
 )
 
-find "$new_root_dir" -mindepth  1 -maxdepth  1 | grep -v './.git.*' | xargs rm -r
+find "$new_root_dir" -mindepth  1 -maxdepth  1 | grep -v '.git.*' | xargs rm -r
 for path in "${paths[@]}"; do
     new_path=$(echo "$new_root_dir/$path" | sed -r 's~/\.~/~g')
     echo $new_path
