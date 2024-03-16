@@ -22,6 +22,7 @@ archive = [
 ]
 text = [
 	{ exec = 'hyprctl dispatch exec "foot -D $(pwd) nvim \"$@\""', desc = "Open in Neovim" },
+	{ exec = 'hyprctl dispatch exec "foot -D $(pwd) sudoedit \"$@\""', desc = "Open in Neovim with sudoedit" },
 ]
 image = [
 	{ exec = 'hyprctl dispatch exec "qview \"$@\""', desc = "Open in qView" },

@@ -40,8 +40,8 @@ alias powerdaemonreset='cpufreqctl.auto-cpufreq --governor --set=reset'
 alias powerinfo='sudo auto-cpufreq --debug'
 alias todo_edit="nvim $HOME/personal/notes/todo"
 alias hypr_edit="nvim $HOME/.config/hypr/hyprland.conf"
-alias phind='tgpt --provider phind -i'
-alias llama2='tgpt --provider llama2 -i'
+alias phind='tgpt --provider phind -m'
+alias llama2='tgpt --provider llama2 -m'
 alias fh='cat ~/.bash_history | fzf | wl-copy'
 alias killorphans='sudo pacman -Qdtq | sudo pacman -Rns -'
 

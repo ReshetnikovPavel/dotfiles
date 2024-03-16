@@ -58,7 +58,7 @@ local plugins = {
     'Slotos/telescope-lsp-handlers.nvim',
 
     'numToStr/Comment.nvim',
-    'luckasRanarison/tree-sitter-hypr',
+    -- 'luckasRanarison/tree-sitter-hypr',
     'norcalli/nvim-colorizer.lua',
     'aveplen/ruscmd.nvim',
     { "folke/neodev.nvim", opts = {} },
