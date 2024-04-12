@@ -27,8 +27,14 @@ vim.keymap.set('n', '<leader>#', ':b#<CR>', {})
 
 
 vim.api.nvim_create_user_command('CdToFileDir', function()
-  local current_file_dir = vim.fn.expand('%:p:h')
-  vim.cmd('cd ' .. current_file_dir)
+    local current_file_dir = vim.fn.expand('%:p:h')
+    vim.cmd('cd ' .. current_file_dir)
+end, {})
+
+
+vim.api.nvim_create_user_command('CopyFilePath', function()
+     local file_path = vim.fn.expand('%:p')
+     vim.fn.setreg('+', file_path)
 end, {})
 
 vim.keymap.set('v', '<leader>t', ':!python3 ~/scripts/fix_wrong_layout.py<CR>', {})
@@ -46,10 +52,10 @@ local plugins = {
 
     { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
 
-    -- {
-    --     'ThePrimeagen/harpoon',
-    --     dependencies = { 'nvim-lua/plenary.nvim' }
-    -- },
+    {
+        'ThePrimeagen/harpoon',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 
     'natecraddock/workspaces.nvim',
 
@@ -61,9 +67,19 @@ local plugins = {
     -- 'luckasRanarison/tree-sitter-hypr',
     'norcalli/nvim-colorizer.lua',
     'aveplen/ruscmd.nvim',
-    { "folke/neodev.nvim", opts = {} },
+    {
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
+    { "folke/neodev.nvim",    opts = {} },
     'mfussenegger/nvim-dap',
-    'rcarriga/nvim-dap-ui',
+    { 'rcarriga/nvim-dap-ui', dependencies = { 'https://github.com/nvim-neotest/nvim-nio' } },
     'lvimuser/lsp-inlayhints.nvim',
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -131,7 +147,7 @@ cmp.setup({
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, {})
 
-require('rose-pine').setup({ disable_italics = true })
+require('rose-pine').setup({ disable_italics = false })
 vim.cmd('colorscheme rose-pine')
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
@@ -159,16 +175,16 @@ require('workspaces').setup()
 telescope.load_extension('workspaces')
 vim.keymap.set('n', '<leader>fw', ':Telescope workspaces<CR>', {})
 
--- telescope.load_extension('harpoon')
--- vim.keymap.set('n', '<leader>fh', ':Telescope harpoon marks<CR>', {})
--- local mark = require('harpoon.mark')
--- local ui = require('harpoon.ui')
--- vim.keymap.set('n', '<leader>a', mark.add_file)
--- vim.keymap.set('n', '<leader>h', ui.toggle_quick_menu)
--- vim.keymap.set('n', '<C-h>', function() ui.nav_file(1) end)
--- vim.keymap.set('n', '<C-j>', function() ui.nav_file(2) end)
--- vim.keymap.set('n', '<C-k>', function() ui.nav_file(3) end)
--- vim.keymap.set('n', '<C-l>', function() ui.nav_file(4) end)
+telescope.load_extension('harpoon')
+vim.keymap.set('n', '<leader>fh', ':Telescope harpoon marks<CR>', {})
+local mark = require('harpoon.mark')
+local ui = require('harpoon.ui')
+vim.keymap.set('n', '<leader>a', mark.add_file)
+vim.keymap.set('n', '<leader>h', ui.toggle_quick_menu)
+vim.keymap.set('n', '<C-h>', function() ui.nav_file(1) end)
+vim.keymap.set('n', '<C-j>', function() ui.nav_file(2) end)
+vim.keymap.set('n', '<C-k>', function() ui.nav_file(3) end)
+vim.keymap.set('n', '<C-l>', function() ui.nav_file(4) end)
 
 require 'telescope-lsp-handlers'.setup()
 
@@ -270,3 +286,6 @@ require("lsp-inlayhints").setup()
 --     require("lsp-inlayhints").on_attach(client, bufnr)
 --   end,
 -- })
+vim.filetype.add({
+    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})

@@ -3,7 +3,7 @@
     "spacing": 5, // Gaps between modules (4px)
     "modules-left": ["hyprland/workspaces", "mpris"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/wf-recorder", "hyprland/language", "backlight", "pulseaudio", "network", "bluetooth", "battery"],
+    "modules-right": ["privacy", "hyprland/language", "backlight", "pulseaudio", "network", "bluetooth", "battery"],
 
     "battery": {
         "states": {
@@ -37,7 +37,7 @@
             "car": " ",
             "default": [" ", " ", " "]
         },
-        "on-click": "footclient alsamixer"
+        "on-click": "pkill myxer || myxer",
     },
       "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -93,12 +93,13 @@
     "bluetooth": {
         // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
         "format": " {status}",
-        "format-disabled": "", // an empty format will hide the module
+        "format-disabled": " disabled", // an empty format will hide the module
         "format-connected": " {num_connections} connected",
         "tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "on-click": "~/scripts/toggle_bluetooth.sh"
+        "on-click": "pkill wofi ; pkill blueman-manager || blueman-manager",
+        "on-click-right": "~/scripts/toggle_bluetooth.sh"
     },
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -111,6 +112,28 @@
         "format": "{}",
         "format-en": "en 󰌌 ",
         "format-ru": "ru 󰌌 ",
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ]
     },
     "custom/wf-recorder": {
 		"format": "  ",

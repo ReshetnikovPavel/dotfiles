@@ -13,7 +13,8 @@ window#waybar {
 #clock,
 #battery,
 #network,
-#pulseaudio {
+#pulseaudio,
+#privacy {
     padding: 0 5px;
 }
 #backlight {

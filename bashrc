@@ -38,12 +38,16 @@ alias H='Hyprland'
 alias powersave='cpufreqctl.auto-cpufreq --governor --set=powersave'
 alias powerdaemonreset='cpufreqctl.auto-cpufreq --governor --set=reset'
 alias powerinfo='sudo auto-cpufreq --debug'
-alias todo_edit="nvim $HOME/personal/notes/todo"
-alias hypr_edit="nvim $HOME/.config/hypr/hyprland.conf"
+alias hypredit="nvim $HOME/.config/hypr/hyprland.conf"
 alias phind='tgpt --provider phind -m'
 alias llama2='tgpt --provider llama2 -m'
 alias fh='cat ~/.bash_history | fzf | wl-copy'
-alias killorphans='sudo pacman -Qdtq | sudo pacman -Rns -'
+alias fb='cd "$(~/scripts/bookmarks.sh | fzf)"'
+alias removeorphans='sudo pacman -Qdtq | sudo pacman -Rns -'
+alias removedockershit='docker system prune -a -f'
+alias spotdl='/home/pavelresh/personal/spotDL/venv/bin/spotdl'
+alias yt-dlp-mp3='yt-dlp --extract-audio --audio-format mp3'
+alias syncthingclient='hyprctl dispatch exec firefox http://127.0.0.1:8384'
 
 function hr() {
     pkill "$1" && hyprctl dispatch exec "$1"
@@ -66,10 +70,6 @@ export EDITOR=nvim
 export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export QT_ENABLE_HIGHDPI_SCALING=1
-# export QT_SCALE_FACTOR=1.5
-
-# export GTK_THEME=Adwaita:dark
-# export QT_QPA_PLATFORMTHEME=gtk3
 
 # *Set fzf theme*
 export FZF_DEFAULT_OPTS="

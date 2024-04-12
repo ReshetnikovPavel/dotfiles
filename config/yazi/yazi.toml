@@ -32,7 +32,7 @@ video = [
 	{ exec = 'hyprctl dispatch exec mpv "$@"' },
 ]
 audio = [
-	{ exec = 'amberol "$@"' },
+	# { exec = 'amberol "$@"' },
 ]
 office = [
     { exec = 'libreoffice "$@"' },

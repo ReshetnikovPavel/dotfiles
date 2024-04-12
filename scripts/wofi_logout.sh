@@ -9,11 +9,11 @@ l=' Lock'
 h=' Exit Hyprland'
 
 function options() {
-    echo $p
-    echo $r
-    echo $s
-    echo $l
-    echo $h
+    echo "$p"
+    echo "$r"
+    echo "$s"
+    echo "$l"
+    echo "$h"
 }
 
 res=$(options | wofi --dmenu -p 'Logout menu' --cache-file /dev/null)
@@ -26,7 +26,11 @@ elif [ "$res" == "$r" ]; then
 elif [ "$res" == "$s" ]; then
     systemctl suspend
 elif [ "$res" == "$l" ]; then
-    loginctl lock-session
+    if pgrep -x 'hypridle'; then
+        loginctl lock-session
+    else
+        ~/scripts/swaylock.sh
+    fi
 elif [ "$res" == "$h" ]; then
     hyprctl dispatch exit
 fi
