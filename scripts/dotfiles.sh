@@ -18,6 +18,7 @@ paths=(
     '.config/yazi'
     '.config/zathura'
     '.config/libinput-gestures.conf'
+    '.config/cava'
     'personal/Lavanda-gtk-theme'
 )
 
