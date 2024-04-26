@@ -18,6 +18,12 @@ vim.g.mapleader = ' '
 vim.o.clipboard = 'unnamedplus'
 vim.o.undofile = true
 
+vim.cmd [[
+ command! W w
+ command! Wq wq
+ command! WQ wq
+]]
+
 vim.keymap.set('n', '<leader>k', function() vim.lsp.inlay_hint(0, nil) end,
     { desc = 'Toggle inlay hints' }
 )

@@ -112,6 +112,7 @@
         "format": "{}",
         "format-en": "en 󰌌 ",
         "format-ru": "ru 󰌌 ",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
     "privacy": {
         "icon-spacing": 4,
