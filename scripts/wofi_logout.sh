@@ -4,7 +4,7 @@ source ~/scripts/kill_other_wofi.sh
 
 p=' Poweroff'
 r=' Reboot'
-s='󰤄 Suspend'
+s='󰤄 Suspend then hibernate'
 l=' Lock'
 h=' Exit Hyprland'
 
@@ -24,7 +24,7 @@ if [ "$res" == "$p" ]; then
 elif [ "$res" == "$r" ]; then
     reboot
 elif [ "$res" == "$s" ]; then
-    systemctl suspend
+    systemctl suspend-then-hibernate
 elif [ "$res" == "$l" ]; then
     if pgrep -x 'hypridle'; then
         loginctl lock-session
