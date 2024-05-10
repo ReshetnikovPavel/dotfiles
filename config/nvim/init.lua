@@ -24,6 +24,8 @@ vim.cmd [[
  command! WQ wq
 ]]
 
+
+
 vim.keymap.set('n', '<leader>k', function() vim.lsp.inlay_hint(0, nil) end,
     { desc = 'Toggle inlay hints' }
 )
@@ -37,6 +39,47 @@ vim.api.nvim_create_user_command('CdToFileDir', function()
     vim.cmd('cd ' .. current_file_dir)
 end, {})
 
+vim.api.nvim_create_user_command('Rename', function(data)
+    local newFilePath
+    if data.args and #data.args > 0 then
+        newFilePath = data.args
+    else
+        newFilePath = vim.fn.input("Enter new file name: ")
+        if newFilePath == nil or newFilePath == "" then
+            print("Didn't rename file. No new name provided")
+            return
+        end
+    end
+
+    local currentDir = vim.fn.expand('%:p:h')
+    if not newFilePath:match("^/") then
+        newFilePath = currentDir .. "/" .. newFilePath
+    end
+
+    local currentFilePath = vim.fn.expand('%:p')
+
+     if vim.fn.filereadable(newFilePath) == 1 then
+        local confirm = vim.fn.confirm("File already exists. Overwrite?", "&Yes\n&No", 2)
+        if confirm == 2 then
+            return
+        elseif confirm == 0 then
+            return
+        end
+    end
+
+    vim.cmd(string.format("saveas! %s", newFilePath))
+    if vim.fn.filereadable(currentFilePath) == 1 then
+        vim.fn.system(string.format("rm %s", currentFilePath))
+    end
+
+    local bufferId = vim.fn.bufnr(currentFilePath)
+    if bufferId ~= -1 then
+        vim.api.nvim_buf_delete(bufferId, {force = true})
+    else
+        print("Buffer not found.")
+    end
+end, { nargs = '?' })
+
 
 vim.api.nvim_create_user_command('CopyFilePath', function()
      local file_path = vim.fn.expand('%:p')
@@ -45,6 +88,7 @@ end, {})
 
 vim.keymap.set('v', '<leader>t', ':!python3 ~/scripts/fix_wrong_layout.py<CR>', {})
 vim.keymap.set('n', '<leader>/', ':noh<CR>', {})
+vim.keymap.set('n', '<leader>u', ':UndotreeToggle<CR>', {})
 vim.keymap.set('v', '<leader><Enter>', ':!bash<CR>', {})
 
 local plugins = {
@@ -70,7 +114,7 @@ local plugins = {
     'Slotos/telescope-lsp-handlers.nvim',
 
     'numToStr/Comment.nvim',
-    -- 'luckasRanarison/tree-sitter-hypr',
+    'mbbill/undotree',
     'norcalli/nvim-colorizer.lua',
     'aveplen/ruscmd.nvim',
     {
@@ -294,4 +338,16 @@ require("lsp-inlayhints").setup()
 -- })
 vim.filetype.add({
     pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
+-- Hyprlang LSP
+vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
+		pattern = {"*.hl", "hypr*.conf"},
+		callback = function(event)
+				print(string.format("starting hyprls for %s", vim.inspect(event)))
+				vim.lsp.start {
+						name = "hyprlang",
+						cmd = {"/home/pavelresh/go/bin/hyprls"},
+						root_dir = vim.fn.getcwd(),
+				}
+		end
 })
