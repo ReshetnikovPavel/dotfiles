@@ -107,10 +107,10 @@ keymap = [
 	{ on = [ "<Space>", "f", "g" ],         exec = "search rg",              desc = "Search files by content using ripgrep" },
 	{ on = [ "<Space>", "а", "п" ],         exec = "search rg",              desc = "Search files by content using ripgrep" },
 	{ on = [ "<C-s>" ],     exec = "search none",            desc = "Cancel the ongoing search" },
-	{ on = [ "z" ],         exec = "jump zoxide",            desc = "Jump to a directory using zoxide" },
-	{ on = [ "я" ],         exec = "jump zoxide",            desc = "Jump to a directory using zoxide" },
-	{ on = [ "Z" ],         exec = "jump fzf",               desc = "Jump to a directory, or reveal a file using fzf" },
-	{ on = [ "Я" ],         exec = "jump fzf",               desc = "Jump to a directory, or reveal a file using fzf" },
+	{ on = [ "z" ],         exec = "plugin zoxide",            desc = "Jump to a directory using zoxide" },
+	{ on = [ "я" ],         exec = "plugin zoxide",            desc = "Jump to a directory using zoxide" },
+	{ on = [ "Z" ],         exec = "plugin fzf",               desc = "Jump to a directory, or reveal a file using fzf" },
+	{ on = [ "Я" ],         exec = "plugin fzf",               desc = "Jump to a directory, or reveal a file using fzf" },
 
 	# Copy
 	{ on = [ "c", "c" ], exec = "copy path",             desc = "Copy the absolute path" },

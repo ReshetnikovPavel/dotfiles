@@ -8,7 +8,7 @@ while true; do
         elif [ $percent -le 15 ]; then
             notify-send --urgency=critical "Battery is very low: ${percent}% left. Please, I need some electricity to live longer"
         elif [ $percent -le 40 ]; then
-            notify-send "Battery: ${percent}% left. You might consider connecting me to the power source"
+            notify-send "Battery: ${percent}% left. You might want to consider connecting me to the power source"
         fi
     elif [ $percent -ge 100 ]; then
             notify-send --urgency=critical "BATTERY IS FULL. UNPLUG IT."
