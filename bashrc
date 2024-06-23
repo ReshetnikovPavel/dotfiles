@@ -48,6 +48,7 @@ alias removedockershit='docker system prune -a -f'
 alias yt-dlp-mp3='yt-dlp --extract-audio --audio-format mp3'
 alias syncthingclient='hyprctl dispatch exec firefox http://127.0.0.1:8384'
 alias checkbattery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias psh='poetry shell'
 
 function hr() {
     pkill "$1" && hyprctl dispatch exec "$1"
@@ -80,3 +81,5 @@ export FZF_DEFAULT_OPTS="
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
 export BAT_THEME=rose-pine
+
+export PATH="$PATH:$HOME/.ghcup/bin"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-new_root_dir="$HOME/personal/dotfiles"
+new_root_dir="$HOME/projects/dotfiles"
 root_dir="$HOME"
 paths=(
     'scripts'
@@ -19,7 +19,6 @@ paths=(
     '.config/zathura'
     '.config/libinput-gestures.conf'
     '.config/cava'
-    'personal/Lavanda-gtk-theme'
 )
 
 find "$new_root_dir" -mindepth  1 -maxdepth  1 | grep -v '.git.*' | xargs rm -r
