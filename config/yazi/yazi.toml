@@ -25,7 +25,7 @@ text = [
 	{ exec = 'hyprctl dispatch exec "foot -D $(pwd) sudoedit \"$@\""', desc = "Open in Neovim with sudoedit" },
 ]
 image = [
-	{ exec = 'hyprctl dispatch exec "qview \"$@\""', desc = "Open in qView" },
+	{ exec = 'hyprctl dispatch exec "loupe \"$@\""', desc = "Open in loupe" },
 	{ exec = 'hyprctl dispatch exec "gimp \"$@\""', desc = "Open in GIMP" },
 ]
 video = [

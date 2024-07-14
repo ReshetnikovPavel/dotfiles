@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 		map("<leader>d", builtin.diagnostics, "[D]iagnostics")
 
-		map("<leader>tt", function()
+		map("<leader>h", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }), { bufnr = event.buf })
 		end, "Toggle inlay hints")
 
@@ -91,19 +91,7 @@ require("mason-lspconfig").setup({
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "isort", "black" },
+		python = { "isort", "black -l 129" },
+		haskell = { "hslint" },
 	},
-})
-
--- Hyprlang LSP
-vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter'}, {
-		pattern = {"*.hl", "hypr*.conf"},
-		callback = function(event)
-				print(string.format("starting hyprls for %s", vim.inspect(event)))
-				vim.lsp.start {
-						name = "hyprlang",
-						cmd = {"/home/pavelresh/go/bin/hyprls"},
-						root_dir = vim.fn.getcwd(),
-				}
-		end
 })

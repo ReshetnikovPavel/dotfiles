@@ -1,22 +1,18 @@
 #!/bin/bash
 
 
-outputs=$(pacmd list-sink-inputs | grep state | grep RUNNING)
-
-if [ -n "$outputs" ]; then
-    exit 1
+if pactl list short sinks | grep RUNNING; then
+	exit 1
 fi
-
-inputs=$(pacmd list-source-outputs | grep state | grep RUNNING)
-
-if [ -n "$inputs" ]; then
-    exit 1
-fi
-
 
 
 activewindowclass=$(hyprctl activewindow -j | jq .class)
 if [ "$activewindowclass" == '"com.github.johnfactotum.Foliate"' ]; then
+	exit 1
+fi
+
+
+if pgrep yay || pgrep pacman; then
 	exit 1
 fi
 

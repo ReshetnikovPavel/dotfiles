@@ -36,9 +36,12 @@ def switch_to(class_name: str) -> bool:
     return False
 
 
-def open_or_switch_to_app(desktop_file_name: str) -> None:
-    if desktop_file_name not in IGNORE_SWITCH_TO:
-        if switch_to(desktop_file_name) or switch_to(desktop_file_name + ".desktop"):
+def open_or_switch_to_app(desktop_file_name: str, class_name: str | None) -> None:
+    if class_name is None:
+        class_name = desktop_file_name
+
+    if class_name not in IGNORE_SWITCH_TO:
+        if switch_to(class_name) or switch_to(class_name + ".desktop"):
             return
     try:
         subprocess.run(["gtk-launch", desktop_file_name]).check_returncode()
@@ -48,4 +51,9 @@ def open_or_switch_to_app(desktop_file_name: str) -> None:
 
 if __name__ == "__main__":
     desktop_file_name_without_extension = sys.argv[1]
-    open_or_switch_to_app(desktop_file_name_without_extension)
+    if len(sys.argv) > 2:
+        print(sys.argv)
+        class_name = sys.argv[2]
+    else:
+        class_name = None
+    open_or_switch_to_app(desktop_file_name_without_extension, class_name)
