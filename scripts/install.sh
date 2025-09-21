@@ -12,7 +12,7 @@ then
 	cd -
 fi
 
-yay -Syu --needed nekoray-bin libinput-gestures walker elephant elephant-calc elephant-clipboard elephant-desktopapplications elephant-files elephant-todo ttf-apple-emoji quickshell
+yay -Syu --needed nekoray-bin libinput-gestures walker elephant elephant-calc elephant-clipboard elephant-desktopapplications elephant-files elephant-todo ttf-apple-emoji quickshell 
 
 
 flatpak install --or-update flathub com.discordapp.Discord com.obsproject.Studio
@@ -21,3 +21,8 @@ flatpak install --or-update flathub com.discordapp.Discord com.obsproject.Studio
 rustup update
 
 nvim --headless "+Lazy! sync" +qa
+
+if ! command -v hyprcwd >/dev/null 2>&1
+then
+	cargo install --git 'https://github.com/JonnieCache/hyprcwd-rs.git'
+fi
