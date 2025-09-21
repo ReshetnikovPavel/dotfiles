@@ -19,3 +19,5 @@ flatpak install --or-update flathub com.discordapp.Discord com.obsproject.Studio
 
 
 rustup update
+
+nvim --headless "+Lazy! sync" +qa
