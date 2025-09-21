@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -Syu --needed neovim yazi rustup git firefox chromium tor tmux ripgrep less ollama docker jq brightnessctl swww fastfetch flatpak stow github-cli base-devel telegram-desktop yt-dlp uv uv npm playerctl wl-clipboard cliphist noto-fonts noto-fonts-cjk unzip
+sudo pacman -Syu --needed neovim yazi rustup git firefox chromium tor tmux ripgrep less ollama docker jq brightnessctl swww fastfetch flatpak stow github-cli base-devel telegram-desktop yt-dlp uv uv npm playerctl wl-clipboard cliphist noto-fonts noto-fonts-cjk unzip hypridle
 
 
 if ! command -v yay >/dev/null 2>&1
