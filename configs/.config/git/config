@@ -1,0 +1,7 @@
+[user]
+	email = pavelresh@yandex.ru
+	name = Pavel Reshetnikov
+[alias]
+	ci = commit
+	st = status
+	br = branch
