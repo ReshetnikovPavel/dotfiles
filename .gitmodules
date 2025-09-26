@@ -1,3 +1,6 @@
 [submodule "configs/.config/nvim"]
 	path = configs/.config/nvim
 	url = git@github.com:ReshetnikovPavel/config.nvim.git
+[submodule "themes/rose-pine/Rose-Pine-GTK-Theme"]
+	path = themes/rose-pine/Rose-Pine-GTK-Theme
+	url = https://github.com/Fausto-Korpsvart/Rose-Pine-GTK-Theme.git
